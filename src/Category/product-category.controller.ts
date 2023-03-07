@@ -6,7 +6,7 @@ import { ProductCategoryService } from './product-category.service';
 export class ProductCategoryController {
 
     constructor( private readonly productCategoryService: ProductCategoryService){}
-    @Get('')
+    @Get()
     async findAll(): Promise<ProductCategory []> {
         return this.productCategoryService.findAll()
     }
