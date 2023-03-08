@@ -13,6 +13,7 @@ import { CartModule } from './cart/cart.module';
 import { Cart } from './cart/cart.entity';
 import { ProductCategoryModule } from './Category/product-category.module';
 import { ProductCategory } from './Category/product-category.entity';
+import { AuthModule } from './auth/auth.module';
 
 dotenv.config();
 
@@ -34,6 +35,7 @@ dotenv.config();
     }),
     ProductCategoryModule,
     CartModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
