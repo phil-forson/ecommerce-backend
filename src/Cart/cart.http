@@ -1,0 +1,40 @@
+GET http://localhost:3000/carts
+
+###
+GET  http://localhost:3000/carts/1
+
+###
+POST http://localhost:3000/carts
+content-type: application/json
+
+
+{
+    "user": 3,
+    "items": [
+        {
+        "product": {
+            "id": 1
+        },
+        "quantity": 2
+        },
+        {
+        "product": {
+            "id": 2
+        },
+        "quantity": 4
+        },
+        {
+        "product": {
+            "id": 3
+        },
+        "quantity": 23
+        }
+    ]
+}
+
+###
+PUT http://localhost:3000/carts/1
+
+{
+    "user": 2,
+}

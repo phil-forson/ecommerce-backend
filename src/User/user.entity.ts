@@ -1,20 +1,27 @@
-import { Order } from 'src/Order/order.entity'
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
+import { Cart } from 'src/cart/cart.entity';
+import { Order } from 'src/Order/order.entity';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 @Entity()
 export class User {
-    @PrimaryGeneratedColumn()
-    id: number
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    username: string
+  @Column()
+  name: string;
 
-    @Column()
-    email: string
+  @Column({ unique: true, nullable: true})
+  email: string;
 
-    @Column()
-    password: string
+  @Column({ unique: true, nullable: true})
+  phoneNumber: string;
 
-    @OneToMany(() => Order, order => order.user)
-    orders: Order[]
+  @Column()
+  password: string;
+
+  @OneToMany(() => Cart, (cart) => cart.user)
+  carts: Cart[];
+
+  @OneToMany(() => Order, (order) => order.user)
+  orders: Order[];
 }

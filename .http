@@ -6,4 +6,13 @@ GET  http://localhost:3000/products
 ###
 GET http://localhost:3000/categories
 
+###
+POST http://localhost:3000/users HTTP/1.1
+content-type: application/json
+{
+    "name": "Yie Man",
+    "phoneNumber": "+233558252616",
+    "password": "123456"
+}
+
 

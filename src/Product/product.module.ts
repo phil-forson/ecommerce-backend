@@ -9,10 +9,11 @@ import { ProductCategoryService } from 'src/Category/product-category.service';
 import { CartService } from 'src/cart/cart.service';
 import { ProductCategory } from 'src/Category/product-category.entity';
 import { Cart } from 'src/cart/cart.entity';
+import { OrderLine } from 'src/Orderline/orderline.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Product, ProductCategory, Cart]),
+    TypeOrmModule.forFeature([Product, ProductCategory, Cart, OrderLine]),
     ProductCategoryModule,
     CartModule,
   ],

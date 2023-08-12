@@ -1,0 +1,18 @@
+GET http://localhost:3000/users
+
+###
+GET http://localhost:3000/users/1
+
+###
+POST http://localhost:3000/users
+
+{
+
+}
+
+###
+PATCH http://localhost:3000/users/1
+
+{
+    "phoneNumber": "0552242222"
+}

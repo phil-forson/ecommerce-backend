@@ -6,15 +6,16 @@ import { AuthService } from './auth.service';
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
   constructor(private authService: AuthService) {
-    super({ usernameField: 'email or username', passwordField: 'password' });
+    super({ usernameField: 'username', passwordField: 'password' }); // Specify the fields to extract from the request
   }
 
-  async validate(usernameOrEmail: string, password: string): Promise<any> {
-    const user = await this.authService.validateUser(usernameOrEmail, password);
-    console.log(user)
+  async validate(usernameOrPhone: string, password: string): Promise<any> {
+    const user = await this.authService.validateUser(usernameOrPhone, password);
+
     if (!user) {
-      throw new UnauthorizedException();
+      throw new UnauthorizedException('Account does not exist');
     }
+
     return user;
   }
 }

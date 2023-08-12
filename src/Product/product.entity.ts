@@ -4,9 +4,12 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
-  OneToMany,
+  ManyToMany,
   ManyToOne,
+  CreateDateColumn,
+  OneToMany,
 } from 'typeorm';
+import { OrderLine } from 'src/Orderline/orderline.entity';
 
 @Entity()
 export class Product {
@@ -19,12 +22,16 @@ export class Product {
   @Column()
   description: string;
 
-  @Column()
+  @Column({ type: 'decimal', precision: 10, scale: 2, default: 0 })
   price: number;
 
-  @OneToMany(() => Order, (order) => order.product)
-  orders: Order[];
+  @CreateDateColumn()
+  createdAt: Date;
+
 
   @ManyToOne(() => ProductCategory, (category) => category.products)
   category: ProductCategory;
+
+  @OneToMany(() => OrderLine, (orderLine) => orderLine.product)
+  orderProducts: OrderLine []
 }
